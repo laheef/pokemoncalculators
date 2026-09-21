@@ -1,0 +1,155 @@
+/* Ad Slot Infrastructure */
+/* ============================================
+   PKM CALCULATOR AD SLOT SYSTEM
+   Shared styles used by every calculator shortcode.
+   All layout-specific widths live in each calculator's own CSS.
+   ============================================ */
+
+/* Two-column layout wrapper — used by every calculator */
+.pkm-calc-layout {
+    display: flex !important;
+    gap: 32px !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+
+/* Main content column */
+.pkm-calc-main {
+    flex: 1 !important;
+    min-width: 0 !important; /* prevents flex overflow on narrow screens */
+}
+
+/* Sidebar column — hidden on mobile, shown on desktop */
+.pkm-calc-sidebar {
+    width: 300px !important;
+    flex-shrink: 0 !important;
+    display: none !important; /* mobile: sidebar never shown */
+}
+@media (min-width: 1024px) {
+    .pkm-calc-sidebar {
+        display: block !important;
+    }
+}
+
+/* Sticky inner wrapper — keeps sidebar visible while user scrolls */
+.pkm-calc-sidebar-inner {
+    position: sticky !important;
+    top: 90px !important; /* clears the site's sticky header */
+}
+
+/* ── Shared ad block base ── */
+.pkm-calc-ad-block {
+    width: 100% !important;
+    overflow: hidden !important;
+    text-align: center !important;
+    /* No min-height when empty — zero CLS */
+}
+
+/* Slot A — leaderboard above calculator */
+.pkm-calc-ad-top {
+    margin-bottom: 24px !important;
+}
+
+/* Slot B — below result (highest attention / best CTR position) */
+.pkm-calc-ad-result {
+    margin-top: 24px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid var(--pkm-border) !important;
+}
+
+/* Slot C — content break between calculator card and long-form */
+.pkm-calc-ad-break {
+    margin: 32px 0 !important;
+}
+
+/* Slot D — in-article, inserted mid-FAQ */
+.pkm-calc-ad-mid {
+    margin: 24px 0 !important;
+}
+
+/* Slot E — sidebar skyscraper container */
+.pkm-calc-ad-sidebar {
+    background: var(--pkm-bg-3) !important;
+    border: 1px solid var(--pkm-border) !important;
+    border-radius: var(--pkm-radius) !important;
+    padding: 8px !important;
+    min-height: 250px !important; /* reserve space for 300x250 minimum — prevents jump when ad loads */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Slot F — bottom of page, before related calculators */
+.pkm-calc-ad-bottom {
+    margin-top: 32px !important;
+    padding-top: 24px !important;
+    border-top: 1px solid var(--pkm-border) !important;
+}
+
+/* ── Dark mode overrides — borders and backgrounds adapt automatically ── */
+[data-theme="dark"] .pkm-calc-ad-result,
+[data-theme="dark"] .pkm-calc-ad-bottom {
+    border-top-color: var(--pkm-border) !important;
+}
+[data-theme="dark"] .pkm-calc-ad-sidebar {
+    background: var(--pkm-bg-3) !important;
+    border-color: var(--pkm-border) !important;
+}
+
+/* ── Skyscraper Flank Banners (Left & Right Gutters on Extra-Wide Desktops) ── */
+.pkm-skyscraper,
+.pkm-ad-skyscraper,
+.pkm-ad-sky {
+    display: none !important;
+    position: fixed !important;
+    top: 110px !important;
+    width: 160px !important;
+    max-width: 160px !important;
+    min-height: 600px !important;
+    z-index: 90 !important;
+    text-align: center !important;
+    pointer-events: auto !important;
+}
+
+.pkm-skyscraper-left,
+.pkm-ad-skyscraper-left,
+.pkm-ad-sky-l {
+    left: 12px !important;
+    right: auto !important;
+}
+
+.pkm-skyscraper-right,
+.pkm-ad-skyscraper-right,
+.pkm-ad-sky-r {
+    right: 12px !important;
+    left: auto !important;
+}
+
+.pkm-skyscraper-inner {
+    position: sticky !important;
+    top: 110px !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+/* Show flanker skyscrapers only on extra-wide screens (>= 1560px) to prevent overlapping main content */
+@media (min-width: 1560px) {
+    .pkm-skyscraper,
+    .pkm-ad-skyscraper,
+    .pkm-ad-sky {
+        display: block !important;
+    }
+}
+
+/* ── Responsive collapse — on mobile, stack to single column ── */
+@media (max-width: 1023px) {
+    .pkm-calc-layout {
+        flex-direction: column !important;
+    }
+    .pkm-calc-sidebar {
+        display: none !important; /* belt + suspenders — sidebar never on mobile */
+    }
+}

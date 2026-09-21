@@ -1,0 +1,50 @@
+# =================================================================
+# Pokémon Calculator Hub - Root Security & URL Router
+# Hostinger Shared Hosting Apache Configuration
+# =================================================================
+
+# 1. Disable Directory Browsing / File Listing
+Options -Indexes -MultiViews
+
+# 2. Block Direct Access to Sensitive Directories & Backend Code
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent direct HTTP access to backend source code directories
+    RewriteRule ^(app|config|views|data|pkm-data|pkm-calculators)($|/) - [F,L,NC]
+
+    # Block access to hidden files (.env, .git, etc.)
+    RewriteRule (^|/)\.(?!well-known) - [F,L,NC]
+
+    # Block access to sensitive file extensions (Source code, DB dumps, logs)
+    RewriteRule \.(sql|json|env|log|ini|sh|md|lock|yml|yaml|bak|config)$ - [F,L,NC]
+
+    # Enforce HTTPS (SSL)
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # If document root is not already pointing to public/, route requests into public/
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# 3. Deny direct access to critical standalone files
+<FilesMatch "^(\.env|\.env\.example|composer\.json|composer\.lock|package\.json|database\.sql|\.gitignore|\.htaccess)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 4. Global Security Response Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>

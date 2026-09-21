@@ -1,0 +1,485 @@
+/* Type Chart Styles */
+/* ================================================================
+   POKEMON TYPE CHART — SCOPED STYLES (prefixed .pkm-tc-page)
+   All rules use !important to beat theme/Elementor overrides
+   ================================================================ */
+.pkm-tc-page *,
+.pkm-tc-page *::before,
+.pkm-tc-page *::after { box-sizing:border-box !important; }
+
+.pkm-tc-page {
+    max-width:1280px !important;
+    margin:0 auto !important;
+    padding:32px 20px 80px !important;
+    font-family:var(--pkm-font-body,system-ui,sans-serif) !important;
+    color:var(--pkm-text,#1a1f2e) !important;
+}
+
+/* ---- Header ---- */
+.pkm-tc-hdr {
+    text-align:center !important;
+    margin-bottom:32px !important;
+}
+.pkm-tc-hdr-icon {
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:52px !important; height:52px !important;
+    background:var(--pkm-primary-light,#fde8ea) !important;
+    border-radius:14px !important;
+    color:var(--pkm-primary,#e63946) !important;
+    margin-bottom:14px !important;
+}
+.pkm-tc-hdr-icon svg { width:26px !important; height:26px !important; }
+.pkm-tc-hdr h1 {
+    font-size:clamp(1.6rem,4vw,2.4rem) !important;
+    font-weight:800 !important;
+    margin:0 0 10px !important;
+    color:var(--pkm-text,#1a1f2e) !important;
+    line-height:1.2 !important;
+}
+.pkm-tc-hdr p {
+    font-size:0.9375rem !important;
+    color:var(--pkm-text-muted,#6b7280) !important;
+    max-width:620px !important;
+    margin:0 auto !important;
+    line-height:1.6 !important;
+}
+.pkm-tc-meta {
+    display:inline-flex !important;
+    align-items:center !important;
+    gap:16px !important;
+    flex-wrap:wrap !important;
+    justify-content:center !important;
+    margin-top:12px !important;
+    font-size:0.8rem !important;
+    color:var(--pkm-text-muted,#6b7280) !important;
+}
+.pkm-tc-meta-badge {
+    display:inline-flex !important;
+    align-items:center !important;
+    gap:5px !important;
+    padding:3px 10px !important;
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    border:1px solid var(--pkm-border,#e5e7eb) !important;
+    border-radius:100px !important;
+    font-size:0.75rem !important;
+    font-weight:600 !important;
+}
+.pkm-tc-meta-badge svg { width:12px !important; height:12px !important; color:var(--pkm-primary,#e63946) !important; }
+
+/* ---- Legend ---- */
+.pkm-tc-legend-bar {
+    display:flex !important;
+    align-items:center !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    padding:14px 18px !important;
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    border:1px solid var(--pkm-border,#e5e7eb) !important;
+    border-radius:12px !important;
+    margin-bottom:32px !important;
+    font-size:0.8125rem !important;
+}
+.pkm-tc-legend-bar > strong {
+    color:var(--pkm-text,#1a1f2e) !important;
+    margin-right:4px !important;
+    flex-shrink:0 !important;
+}
+.pkm-tc-pill {
+    display:inline-flex !important;
+    align-items:center !important;
+    gap:5px !important;
+    padding:4px 12px !important;
+    border-radius:100px !important;
+    font-weight:700 !important;
+    font-size:0.775rem !important;
+    white-space:nowrap !important;
+}
+.pkm-tc-pill-2x   { background:#dcfce7 !important; color:#15803d !important; }
+.pkm-tc-pill-half { background:#ffedd5 !important; color:#c2410c !important; }
+.pkm-tc-pill-0x   { background:#f1f5f9 !important; color:#475569 !important; }
+.pkm-tc-pill-1x   { background:var(--pkm-bg-3,#f0f0f0) !important; color:var(--pkm-text-muted,#6b7280) !important; }
+
+/* ---- Quick Ref Section ---- */
+.pkm-tc-qr-section > h2 {
+    font-size:1.125rem !important;
+    font-weight:700 !important;
+    margin:0 0 16px !important;
+    color:var(--pkm-text,#1a1f2e) !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+}
+.pkm-tc-qr-section > h2 svg { color:var(--pkm-primary,#e63946) !important; }
+.pkm-tc-qr-grid {
+    display:grid !important;
+    grid-template-columns:repeat(auto-fill,minmax(190px,1fr)) !important;
+    gap:14px !important;
+    margin-bottom:48px !important;
+}
+.pkm-tc-qr-card {
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    border:1px solid var(--pkm-border,#e5e7eb) !important;
+    border-radius:12px !important;
+    padding:14px !important;
+    transition:transform .2s,box-shadow .2s !important;
+}
+.pkm-tc-qr-card:hover {
+    transform:translateY(-4px) !important;
+    box-shadow:0 8px 24px rgba(0,0,0,.08) !important;
+}
+.pkm-tc-qr-card-head {
+    display:flex !important;
+    align-items:center !important;
+    gap:9px !important;
+    margin-bottom:10px !important;
+    font-weight:700 !important;
+    font-size:0.875rem !important;
+}
+.pkm-tc-type-icon {
+    width:30px !important; height:30px !important;
+    border-radius:8px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-shrink:0 !important;
+}
+.pkm-tc-type-icon svg { width:16px !important; height:16px !important; }
+.pkm-tc-qr-rows { display:flex !important; flex-direction:column !important; gap:5px !important; }
+.pkm-tc-qr-row {
+    background:var(--pkm-bg,#fff) !important;
+    border-radius:6px !important;
+    padding:5px 8px !important;
+    font-size:0.75rem !important;
+    color:var(--pkm-text-muted,#6b7280) !important;
+}
+.pkm-tc-qr-lbl {
+    display:flex !important;
+    align-items:center !important;
+    gap:4px !important;
+    font-weight:700 !important;
+    font-size:0.68rem !important;
+    text-transform:uppercase !important;
+    letter-spacing:.04em !important;
+    margin-bottom:2px !important;
+}
+.pkm-tc-qr-lbl svg { flex-shrink:0 !important; }
+.pkm-tc-lbl-strong { color:#15803d !important; }
+.pkm-tc-lbl-weak   { color:#dc2626 !important; }
+.pkm-tc-lbl-immune { color:#7c3aed !important; }
+
+/* ---- Matrix ---- */
+.pkm-tc-matrix-section > h2 {
+    font-size:1.125rem !important;
+    font-weight:700 !important;
+    margin:0 0 16px !important;
+    color:var(--pkm-text,#1a1f2e) !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+}
+.pkm-tc-matrix-section > h2 svg { color:var(--pkm-primary,#e63946) !important; }
+.pkm-tc-matrix-outer {
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    border:1px solid var(--pkm-border,#e5e7eb) !important;
+    border-radius:14px !important;
+    position:relative !important;
+    width:100% !important;
+    max-width:100% !important;
+    /* Right-edge fade hint — shows there's more to scroll */
+    overflow:hidden !important; /* needed for the ::after gradient */
+}
+/* Gradient fade on right edge to hint at scroll — hidden when scrolled to end */
+.pkm-tc-matrix-outer::after {
+    content:'' !important;
+    position:absolute !important;
+    top:0 !important; right:0 !important; bottom:0 !important;
+    width:40px !important;
+    background:linear-gradient(to right, transparent, var(--pkm-bg-2,#f8f9fa)) !important;
+    pointer-events:none !important;
+    z-index:20 !important;
+    border-radius:0 14px 14px 0 !important;
+    transition:opacity .3s !important;
+}
+.pkm-tc-matrix-outer.pkm-scrolled-end::after { opacity:0 !important; }
+.pkm-tc-matrix-scroll {
+    overflow-x:auto !important;
+    overflow-y:visible !important;
+    -webkit-overflow-scrolling:touch !important;
+    border-radius:14px !important;
+    width:100% !important;
+    display:block !important;
+    /* Custom scrollbar for nicer UX */
+    scrollbar-width:thin !important;
+    scrollbar-color:var(--pkm-primary,#e63946) var(--pkm-bg-3,#f0f0f0) !important;
+}
+.pkm-tc-matrix-scroll::-webkit-scrollbar { height:6px !important; }
+.pkm-tc-matrix-scroll::-webkit-scrollbar-track { background:var(--pkm-bg-3,#f0f0f0) !important; border-radius:3px !important; }
+.pkm-tc-matrix-scroll::-webkit-scrollbar-thumb { background:var(--pkm-primary,#e63946) !important; border-radius:3px !important; }
+/* Ensure the page wrapper doesn't clip */
+.pkm-tc-page,
+.pkm-tc-matrix-section {
+    width:100% !important;
+    max-width:100% !important;
+    overflow:visible !important;
+    box-sizing:border-box !important;
+}
+/* Allow matrix to use full viewport width on constrained layouts */
+.pkm-tc-matrix-section {
+    margin-left:calc(-20px) !important;
+    margin-right:calc(-20px) !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    width:calc(100% + 40px) !important;
+    max-width:calc(100% + 40px) !important;
+}
+.pkm-tc-matrix-section > h2 {
+    padding-left:20px !important;
+    padding-right:20px !important;
+}
+/* =====================================================
+   FULL-WIDTH FLUID TABLE — replaces fixed-layout table
+   Strategy: table uses auto layout + percentage-based
+   columns so it naturally fills 100% of scroll area.
+   ATK/DEF corner is tall enough to show both labels.
+   Sticky left column (attacker) always visible.
+   ===================================================== */
+
+/* --- Base table --- */
+.pkm-tc-tbl {
+    border-collapse:collapse !important;
+    width:100% !important;              /* fill scroll container */
+    min-width:640px !important;         /* never smaller than this — triggers scroll on mobile */
+    table-layout:auto !important;       /* fluid: browser distributes column widths */
+    font-size:0.78rem !important;
+}
+
+/* All cells share base border/padding */
+.pkm-tc-tbl th,
+.pkm-tc-tbl td {
+    border:1px solid var(--pkm-border,#e5e7eb) !important;
+    padding:0 !important;
+    margin:0 !important;
+    vertical-align:middle !important;
+}
+
+/* --- Corner cell (ATK ↓ / DEF →) --- */
+.pkm-tc-corner-th {
+    position:sticky !important;
+    left:0 !important;
+    z-index:10 !important;
+    width:96px !important;
+    min-width:96px !important;
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    padding:8px 10px !important;
+    font-size:0.7rem !important;
+    font-weight:600 !important;
+    color:var(--pkm-text-muted,#6b7280) !important;
+    text-align:left !important;
+    line-height:1.3 !important;
+    white-space:nowrap !important;
+    /* shadow to separate from scrolled content */
+    box-shadow:2px 0 6px rgba(0,0,0,0.06) !important;
+}
+.pkm-tc-corner-inner {
+    display:flex !important;
+    flex-direction:column !important;
+    gap:2px !important;
+}
+.pkm-tc-corner-atk {
+    color:var(--pkm-primary,#e63946) !important;
+    font-weight:800 !important;
+    font-size:0.72rem !important;
+    display:block !important;
+}
+.pkm-tc-corner-sep {
+    display:block !important;
+    border-bottom:1.5px dashed var(--pkm-border,#e5e7eb) !important;
+    margin:3px 0 !important;
+    width:100% !important;
+}
+.pkm-tc-corner-def {
+    color:#457b9d !important;
+    font-weight:800 !important;
+    font-size:0.72rem !important;
+    display:block !important;
+}
+
+/* --- Defender header cells (top row) --- */
+.pkm-tc-def-th {
+    padding:8px 3px 6px !important;
+    text-align:center !important;
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    position:sticky !important;
+    top:0 !important;
+    z-index:5 !important;
+    min-width:44px !important;
+    white-space:nowrap !important;
+}
+.pkm-tc-def-th-inner {
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:4px !important;
+}
+.pkm-tc-def-th-icon {
+    width:24px !important;
+    height:24px !important;
+    border-radius:6px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-shrink:0 !important;
+}
+.pkm-tc-def-th-icon svg {
+    width:14px !important;
+    height:14px !important;
+}
+.pkm-tc-def-th-name {
+    font-size:0.6rem !important;
+    font-weight:700 !important;
+    text-transform:uppercase !important;
+    letter-spacing:.03em !important;
+    line-height:1 !important;
+    writing-mode:vertical-rl !important;
+    text-orientation:mixed !important;
+    transform:rotate(180deg) !important;
+    height:46px !important;
+    display:flex !important;
+    align-items:center !important;
+}
+
+/* --- Attacker row header (sticky left) --- */
+.pkm-tc-atk-th {
+    position:sticky !important;
+    left:0 !important;
+    z-index:4 !important;
+    background:var(--pkm-bg-2,#f8f9fa) !important;
+    width:96px !important;
+    min-width:96px !important;
+    padding:5px 8px !important;
+    white-space:nowrap !important;
+    box-shadow:2px 0 6px rgba(0,0,0,0.06) !important;
+}
+.pkm-tc-atk-th-inner {
+    display:flex !important;
+    align-items:center !important;
+    gap:6px !important;
+}
+.pkm-tc-atk-icon {
+    width:22px !important;
+    height:22px !important;
+    border-radius:6px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-shrink:0 !important;
+}
+.pkm-tc-atk-icon svg {
+    width:13px !important;
+    height:13px !important;
+}
+.pkm-tc-atk-name {
+    font-size:0.75rem !important;
+    font-weight:700 !important;
+    line-height:1 !important;
+}
+
+/* --- Effectiveness cells --- */
+.pkm-tc-eff {
+    text-align:center !important;
+    padding:5px 3px !important;
+    font-weight:700 !important;
+    font-size:0.78rem !important;
+    transition:background .1s !important;
+    cursor:default !important;
+    min-width:44px !important;
+}
+.pkm-tc-eff-inner {
+    display:inline-flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    width:32px !important;
+    height:24px !important;
+    border-radius:6px !important;
+    font-size:0.75rem !important;
+    font-weight:700 !important;
+}
+.pkm-tc-eff-2x   .pkm-tc-eff-inner { background:#dcfce7 !important; color:#15803d !important; font-weight:800 !important; }
+.pkm-tc-eff-half .pkm-tc-eff-inner { background:#ffedd5 !important; color:#c2410c !important; font-weight:800 !important; }
+.pkm-tc-eff-0x   .pkm-tc-eff-inner { background:#f1f5f9 !important; color:#64748b !important; font-weight:700 !important; }
+.pkm-tc-eff-1x   .pkm-tc-eff-inner { background:transparent !important; color:var(--pkm-text-muted,#9ca3af) !important; font-weight:400 !important; }
+.pkm-tc-eff:hover .pkm-tc-eff-inner { opacity:.75 !important; }
+
+/* ---- Responsive breakpoints ---- */
+
+/* Tablet: 768px–1023px */
+@media(max-width:1023px) {
+    .pkm-tc-page { padding:24px 16px 60px !important; }
+    .pkm-tc-qr-grid { grid-template-columns:repeat(3,1fr) !important; }
+    .pkm-tc-tbl { min-width:580px !important; }
+    .pkm-tc-def-th { min-width:40px !important; padding:6px 2px 4px !important; }
+    .pkm-tc-def-th-icon { width:20px !important; height:20px !important; }
+    .pkm-tc-def-th-icon svg { width:12px !important; height:12px !important; }
+    .pkm-tc-def-th-name { height:40px !important; font-size:0.55rem !important; }
+    .pkm-tc-corner-th,
+    .pkm-tc-atk-th { width:84px !important; min-width:84px !important; }
+    .pkm-tc-eff { min-width:40px !important; }
+    .pkm-tc-eff-inner { width:28px !important; height:22px !important; }
+}
+
+/* Mobile: 480px–767px */
+@media(max-width:767px) {
+    .pkm-tc-qr-grid { grid-template-columns:repeat(2,1fr) !important; }
+    .pkm-tc-legend-bar { gap:6px !important; font-size:0.73rem !important; flex-wrap:wrap !important; }
+    .pkm-tc-hdr h1 { font-size:1.5rem !important; }
+    .pkm-tc-tbl { min-width:520px !important; font-size:0.7rem !important; }
+    /* Column headers */
+    .pkm-tc-def-th { min-width:34px !important; padding:4px 1px 3px !important; }
+    .pkm-tc-def-th-icon { width:18px !important; height:18px !important; }
+    .pkm-tc-def-th-icon svg { width:11px !important; height:11px !important; }
+    .pkm-tc-def-th-name { height:36px !important; font-size:0.5rem !important; }
+    /* Corner & row header */
+    .pkm-tc-corner-th { width:76px !important; min-width:76px !important; padding:6px 7px !important; }
+    .pkm-tc-corner-atk, .pkm-tc-corner-def { font-size:0.65rem !important; }
+    .pkm-tc-atk-th { width:76px !important; min-width:76px !important; padding:4px 6px !important; }
+    .pkm-tc-atk-icon { width:17px !important; height:17px !important; }
+    .pkm-tc-atk-icon svg { width:10px !important; height:10px !important; }
+    .pkm-tc-atk-name { font-size:0.66rem !important; }
+    /* Cells */
+    .pkm-tc-eff { min-width:34px !important; padding:3px 1px !important; }
+    .pkm-tc-eff-inner { width:26px !important; height:20px !important; font-size:0.66rem !important; border-radius:4px !important; }
+    /* Scroll hint */
+    .pkm-tc-matrix-scroll::before {
+        content: '⟵  Scroll  ⟶' !important;
+        display:block !important;
+        text-align:center !important;
+        font-size:0.68rem !important;
+        color:var(--pkm-text-muted,#9ca3af) !important;
+        padding:6px 0 !important;
+        background:var(--pkm-bg-3,#f0f4f8) !important;
+        border-bottom:1px solid var(--pkm-border,#e5e7eb) !important;
+        letter-spacing:.08em !important;
+        font-weight:600 !important;
+    }
+}
+
+/* Small phones: max 479px */
+@media(max-width:479px) {
+    .pkm-tc-qr-grid { grid-template-columns:1fr !important; }
+    .pkm-tc-tbl { min-width:440px !important; font-size:0.65rem !important; }
+    /* Hide type icon in column headers to save space — just show name */
+    .pkm-tc-def-th-icon { display:none !important; }
+    .pkm-tc-def-th { min-width:28px !important; padding:3px 1px !important; }
+    .pkm-tc-def-th-name { height:32px !important; font-size:0.44rem !important; letter-spacing:0 !important; }
+    /* Corner stays readable */
+    .pkm-tc-corner-th { width:68px !important; min-width:68px !important; padding:5px 6px !important; }
+    .pkm-tc-corner-atk, .pkm-tc-corner-def { font-size:0.6rem !important; }
+    .pkm-tc-atk-th { width:68px !important; min-width:68px !important; padding:3px 5px !important; }
+    .pkm-tc-atk-icon { width:15px !important; height:15px !important; border-radius:4px !important; }
+    .pkm-tc-atk-icon svg { width:9px !important; height:9px !important; }
+    .pkm-tc-atk-name { font-size:0.6rem !important; }
+    .pkm-tc-eff { min-width:28px !important; padding:2px 0 !important; }
+    .pkm-tc-eff-inner { width:22px !important; height:18px !important; font-size:0.62rem !important; border-radius:3px !important; }
+}
